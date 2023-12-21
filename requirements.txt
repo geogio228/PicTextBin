@@ -4,5 +4,4 @@ Flask-WTF
 Flask-SQLAlchemy
 wtforms
 datetime
-werkzeug
 gunicorn
