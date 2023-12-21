@@ -2,14 +2,10 @@ Flask
 Flask-Login
 Flask-WTF
 Flask-SQLAlchemy
-sqlalchemy.exc
 wtforms
 wtforms.fields
 wtforms.validators
 datetime
-ext
 werkzeug.security
 werkzeug.utils
-forms
-models
 gunicorn
