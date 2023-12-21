@@ -3,8 +3,6 @@ Flask-Login
 Flask-WTF
 Flask-SQLAlchemy
 wtforms
-wtforms.fields
-wtforms.validators
 datetime
 werkzeug.security
 werkzeug.utils
