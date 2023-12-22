@@ -69,11 +69,16 @@ def update_article(product_id):
         chosen_post.content = form.content.data
 
         if form.img.data:
-            chosen_post.img = form.img.data.filename
+            old_img_path = os.path.join(app.config['UPLOAD_FOLDER'], chosen_post.img)
+            if os.path.exists(old_img_path):
+                os.remove(old_img_path)
+
             f = form.img.data
             filename = secure_filename(f.filename)
             save_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             f.save(save_path)
+            chosen_post.img = filename
+
         db.session.commit()
 
         flash("Post updated successfully", "success")
@@ -82,7 +87,6 @@ def update_article(product_id):
         flash("Error updating Post", "danger")
 
     return render_template("edit_article.html", form=form, chosen_post=chosen_post)
-
 
 @app.route("/edit_article/<int:product_id>", methods=["POST", "GET"])
 @login_required
